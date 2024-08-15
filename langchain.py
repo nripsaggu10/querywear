@@ -12,7 +12,7 @@ from few_shots import few_shots
 
 import os
 from dotenv import load_dotenv
-load_dotenv()  # take environment variables from .env (especially openai api key)
+load_dotenv() 
 
 
 def get_few_shot_db_chain():
@@ -58,7 +58,7 @@ def get_few_shot_db_chain():
         example_prompt=example_prompt,
         prefix=mysql_prompt,
         suffix=PROMPT_SUFFIX,
-        input_variables=["input", "table_info", "top_k"], #These variables are used in the prefix and suffix
+        input_variables=["input", "table_info", "top_k"], 
     )
     chain = SQLDatabaseChain.from_llm(llm, db, verbose=True, prompt=few_shot_prompt)
     return chain
